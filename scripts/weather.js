@@ -24,11 +24,15 @@ class Weather {
   getToday (data) {
     return this.get(data)
       .then(({ city, list }) => {
-        return new WeatherResults({
-          city,
-          list,
-        })
+        return new WeatherResults({ city, list, })
           .filterByDate(moment())
+      })
+  }
+  getTomorrow (data) {
+    return this.get(data)
+      .then(({ city, list }) => {
+        return new WeatherResults({ city, list, })
+          .filterByDate(moment().clone().add(1, 'days'))
       })
   }
 }
@@ -48,16 +52,6 @@ class WeatherResults {
         .value()
     })
   }
-  getTempMax () {
-    return maxBy(this.list, (weather) => {
-      return weather.main.temp
-    })
-  }
-  getTempMin () {
-    return minBy(this.list, (weather) => {
-      return weather.main.temp
-    })
-  }
 }
 
 const loc = 'Shinagawa, JP'
@@ -66,8 +60,11 @@ const apiKey  = process.env.HUBOT_WEATHER_KEY
 module.exports = function (robot) {
   const client = new Weather({ key: apiKey })
 
-  function fetchAndPost (sender) {
-    client.getToday({ q: loc })
+  function fetchAndPost (target, sender) {
+    const method = target == 'tomorrow' ? 'getTomorrow' : 'getToday'
+    const dateStr = target == 'tomorrow' ? '明日' : '今日'
+
+    client[method]({ q: loc })
       .then((res) => {
         const weatherstr = chain(res.list)
           .map((data) => {
@@ -83,8 +80,8 @@ module.exports = function (robot) {
           .join(', ')
           .value()
 
-        sender(`${ res.city.name }の今日の天候は ${ weatherstr } です`)
-        sender(`${ res.city.name }の今日の気温は ${ tempstr } です`)
+        sender(`${ res.city.name }の${ dateStr }の天候は ${ weatherstr } です`)
+        sender(`${ res.city.name }の${ dateStr }の気温は ${ tempstr } です`)
       })
   }
 
@@ -102,9 +99,11 @@ module.exports = function (robot) {
       })
     })
 
-  robot.hear(/^!weather/, (msg) => {
+  robot.hear(/^!weather(?: (today|tomorrow))?/, (msg) => {
     msg.send('inquiring wheather...')
-    fetchAndPost((content) => {
+    const target = msg.match[1]
+
+    fetchAndPost(target, (content) => {
       msg.send(content)
     })
   })
