@@ -4,6 +4,8 @@ set -e
 
 yarn install
 
+export HUBOT_WEATHER_KEY='64574b4d9cabca3f2e114cbf19ef90c5'
+
 export NODE_PATH="lib"
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 

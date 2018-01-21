@@ -61,7 +61,7 @@ class WeatherResults {
 }
 
 const loc = 'Shinagawa, JP'
-const apiKey  = '64574b4d9cabca3f2e114cbf19ef90c5'
+const apiKey  = process.env.HUBOT_WEATHER_KEY
 
 module.exports = function (robot) {
   const client = new Weather({ key: apiKey })
