@@ -66,9 +66,7 @@ const apiKey  = process.env.HUBOT_WEATHER_KEY
 module.exports = function (robot) {
   const client = new Weather({ key: apiKey })
 
-  robot.hear(/^!weather/, (msg) => {
-    msg.send('inquiring wheather...')
-
+  function fetchAndPost (sender) {
     client.getToday({ q: loc })
       .then((res) => {
         const weatherstr = chain(res.list)
@@ -85,8 +83,29 @@ module.exports = function (robot) {
           .join(', ')
           .value()
 
-        msg.send(`${ res.city.name }の今日の天候は ${ weatherstr } です`)
-        msg.send(`${ res.city.name }の今日の気温は ${ tempstr } です`)
+        sender(`${ res.city.name }の今日の天候は ${ weatherstr } です`)
+        sender(`${ res.city.name }の今日の気温は ${ tempstr } です`)
       })
+  }
+
+  robot.scheduler
+    .register({
+      time: { hour: 7, },
+      holiday: true,
+      envelope: { room: '#quiet' },
+      data: {
+      }
+    })
+    .onTime((envelope, data) => {
+      fetchAndPost((content) => {
+        robot.send(envelope, content)
+      })
+    })
+
+  robot.hear(/^!weather/, (msg) => {
+    msg.send('inquiring wheather...')
+    fetchAndPost((content) => {
+      msg.send(content)
+    })
   })
 }
