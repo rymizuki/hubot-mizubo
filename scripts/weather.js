@@ -87,14 +87,14 @@ module.exports = function (robot) {
 
   robot.scheduler
     .register({
-      time: { hour: 7, },
+      time: { hour: 7, minute: 0 },
       holiday: true,
       envelope: { room: '#quiet' },
       data: {
       }
     })
     .onTime((envelope, data) => {
-      fetchAndPost((content) => {
+      fetchAndPost('today', (content) => {
         robot.send(envelope, content)
       })
     })
