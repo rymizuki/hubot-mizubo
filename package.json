@@ -20,5 +20,10 @@
     "moment": "^2.20.1",
     "node-schedule": "^1.3.0",
     "qs": "^6.5.1"
+  },
+  "scripts": {
+    "start": "yarn install; forever cleanlogs; forever start --uid=mizubo ./node_modules/.bin/hubot-dotenv --name=mizubo",
+    "restart": "yarn install; forever restart mizubo",
+    "stop": "forever stop mizubo"
   }
 }
