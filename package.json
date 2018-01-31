@@ -8,6 +8,7 @@
     "@mizuki_r/hubot-scheduler": "^0.0.2",
     "axios": "^0.17.1",
     "date-holidays": "^1.2.0",
+    "forever": "^0.15.3",
     "hubot": "^2.19.0",
     "hubot-diagnostics": "^0.0.2",
     "hubot-dotenv": "^1.0.0",
