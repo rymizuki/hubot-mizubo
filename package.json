@@ -22,8 +22,9 @@
     "qs": "^6.5.1"
   },
   "scripts": {
-    "start": "yarn install; forever cleanlogs; forever start --uid=mizubo ./node_modules/.bin/hubot-dotenv --name=mizubo",
-    "restart": "yarn install; forever restart mizubo",
-    "stop": "forever stop mizubo"
+    "start": "bin/start",
+    "restart": "bin/restart",
+    "stop": "bin/stop",
+    "status": "forever list"
   }
 }
