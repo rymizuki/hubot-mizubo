@@ -1,3 +1,11 @@
+// Description:
+//   Get weather for today or tomorrow
+//
+// Commands:
+//   hubot weather - get weather for today
+//   hubot weather (today|tomorrow) - get weather for today or tomorrow
+//
+
 const axios = require('axios')
 const qs    = require('qs')
 const { chain, defaults, maxBy, minBy } = require('lodash')
@@ -80,8 +88,23 @@ module.exports = function (robot) {
           .join(', ')
           .value()
 
-        sender(`${ res.city.name }の${ dateStr }の天候は ${ weatherstr } です`)
-        sender(`${ res.city.name }の${ dateStr }の気温は ${ tempstr } です`)
+        const wantUmbrella = chain(res.list)
+          .filter((data) => {
+            const weather = data.weather[0].main
+            return weather == 'Rain' ||
+                   weather == 'Snow'
+          })
+          .value()
+          .length > 0
+
+        sender(
+`
+${ res.city.name }の${ dateStr }の天気は
+${ weatherstr }
+${ tempstr }
+${ wantUmbrella ? '傘をもって行ったほうが良いでしょう' : '' }
+`
+        )
       })
   }
 
@@ -99,9 +122,10 @@ module.exports = function (robot) {
       })
     })
 
-  robot.hear(/^!weather(?: (today|tomorrow))?/, (msg) => {
-    msg.send('inquiring wheather...')
+  robot.respond(/weather(?: (today|tomorrow))?/, (msg) => {
     const target = msg.match[1]
+
+    msg.send('inquiring wheather...')
 
     fetchAndPost(target, (content) => {
       msg.send(content)
