@@ -1,3 +1,10 @@
+// Description:
+//   FGOの情報を検索します
+//
+// Commands:
+//   hubot fgo 鯖 <名前> - サーヴァント情報を取得します
+//
+
 const axios = require('axios')
 const { template } = require('lodash')
 
@@ -23,9 +30,9 @@ class ServantDatasource {
 module.exports = function (robot) {
   const servant = new ServantDatasource()
 
-  function createHandler (msg) {
+  function createHandler (msg, name) {
     return function handleError (err) {
-      if (err.response.status = 404) {
+      if (err.response.status == 404) {
         msg.send(`${ name }の情報は見つかりませんでした`)
       } else {
         msg.send(`取得できません。ステータス ${ err.response.status }`)
@@ -33,13 +40,13 @@ module.exports = function (robot) {
     }
   }
 
-  robot.hear(/^!fgo 鯖 (.+)/, (msg) => {
+  robot.respond(/fgo 鯖 (.+)/, (msg) => {
     const name = msg.match[1]
 
     servant.findUri(name)
       .then((uri) => {
         msg.send(`${ name }の情報: ${ uri }`)
       })
-      .catch(createHandler(msg))
+      .catch(createHandler(msg, name))
   })
 }
