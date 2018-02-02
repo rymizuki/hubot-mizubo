@@ -2,7 +2,14 @@
 
 set -e
 
-yarn install
+ACTIVE_CONTAINER_ID=`docker ps -q --filter ancestor=mizubo --format=\"{{.ID}}\"`
+EXITED_CONTAINER_ID=`docker ps -a -q --filter ancestor=mizubo --filter status=exited --format=\"{{.ID}}\"`
 
-forever cleanlogs
-forever start ./forever.json
+if [ "$ACTIVE_CONTAINER_ID" != "" ]; then
+  echo "already running process!"
+  exit;
+elif [ "$EXITED_CONTAINER_ID" != "" ]; then
+  docker start $(echo $EXITED_CONTAINER_ID | sed "s/\"//g")
+else
+  docker run -itd mizubo
+fi

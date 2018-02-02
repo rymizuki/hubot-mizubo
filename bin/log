@@ -4,4 +4,4 @@ set -e
 
 CONTAINER_ID=$(docker ps -q --filter ancestor=mizubo --format=\"{{.ID}}\")
 
-docker stop $(echo $CONTAINER_ID | sed "s/\"//g")
+docker logs -f $(echo $CONTAINER_ID | sed "s/\"//g")
