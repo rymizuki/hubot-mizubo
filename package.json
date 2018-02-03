@@ -27,12 +27,6 @@
     "mversion": "^1.10.1"
   },
   "scripts": {
-    "build": "docker build . -t=mizubo",
-    "start": "bin/start",
-    "stop": "bin/stop",
-    "restart": "yarn stop; yarn start",
-    "status": "bin/status",
-    "log": "bin/log",
     "bump": "mversion $1 -m '%s'"
   }
 }

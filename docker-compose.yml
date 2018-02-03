@@ -1,0 +1,16 @@
+mizubo:
+  build: ./
+  links:
+    - redis
+  ports:
+    - 8080:8080
+  environment:
+    TZ: Asia/Tokyo
+    REDIS_URL: redis://localhost:6379
+
+redis:
+  restart: always
+  image: redis:latest
+  command: redis-server --appendonly yes
+  ports:
+    - 6379:6379
