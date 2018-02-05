@@ -7,6 +7,7 @@ mizubo:
   environment:
     TZ: Asia/Tokyo
     REDIS_URL: redis://redis:6379
+  restart: always
 
 redis:
   restart: always
