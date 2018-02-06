@@ -1,17 +1,35 @@
-mizubo:
-  build: ./
-  links:
-    - redis
-  ports:
-    - 8080:8080
-  environment:
-    TZ: Asia/Tokyo
-    REDIS_URL: redis://redis:6379
-  restart: always
+version: '3.4'
+services:
+  mizubo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - redis
+    links:
+      - redis
+    ports:
+      - "8080:8080"
+    environment:
+      REDIS_URL: redis://redis:6379
+    command: ["./bin/hubot", "--adapter", "slack"]
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./bin:/hubot/bin
+      - ./lib:/hubot/lib
+      - ./node_modules:/hubot/node_modules
+      - ./scripts:/hubot/scripts
+      - ./.editorconfig:/hubot/.editorconfig
+      - ./.env:/hubot/.env
+      - ./.hubot_history:/hubot/.hubot_history
+      - ./external-scripts.json:/hubot/external-scripts.json
+      - ./package.json:/hubot/package.json
+      - ./yarn.lock:/hubot/yarn.lock
 
-redis:
-  restart: always
-  image: redis:latest
-  command: redis-server --appendonly yes
-  ports:
-    - 6379:6379
+  redis:
+    image: redis:4.0.8-alpine
+    restart: always
+    ports:
+      - "6637:9379"
