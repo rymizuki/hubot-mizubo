@@ -17,16 +17,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./bin:/hubot/bin
-      - ./lib:/hubot/lib
-      - ./node_modules:/hubot/node_modules
-      - ./scripts:/hubot/scripts
-      - ./.editorconfig:/hubot/.editorconfig
-      - ./.env:/hubot/.env
-      - ./.hubot_history:/hubot/.hubot_history
-      - ./external-scripts.json:/hubot/external-scripts.json
-      - ./package.json:/hubot/package.json
-      - ./yarn.lock:/hubot/yarn.lock
+      - ./:/hubot
 
   redis:
     image: redis:4.0.8-alpine
