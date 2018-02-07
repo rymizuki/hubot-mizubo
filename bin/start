@@ -1,8 +1,0 @@
-#!/bin/sh
-
-set -e
-
-yarn install
-
-forever cleanlogs
-forever start ./forever.json

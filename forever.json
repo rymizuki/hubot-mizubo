@@ -1,9 +1,0 @@
-{
-  "uid": "mizubo",
-  "append": true,
-  "watch": false,
-  "command": "sh",
-  "script": "bin/hubot",
-  "args": ["--adapter", "slack"],
-  "killTree": true
-}
