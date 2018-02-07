@@ -1,3 +1,13 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/rymizuki/hubot-mizubo/compare/v1.1.1...v1.2.0) (2018-02-07)
+
+
+### Features
+
+* **changelog:** バージョン番号指定でデータを取得できるようにする ([ba47724](https://github.com/rymizuki/hubot-mizubo/commit/ba47724))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/rymizuki/hubot-mizubo/compare/v1.1.0...v1.1.1) (2018-02-07)
 
