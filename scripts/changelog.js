@@ -2,6 +2,7 @@
 //   show changelog
 // Commands:
 //   hubot changelog - show recently changes
+//   hubot changelog <version> - show changes by version
 //
 const fs = require('fs')
 const path = require('path')
@@ -37,11 +38,7 @@ function getReleases (raw) {
   return releases
 }
 
-function getRecentData (raw) {
-  const releases = getReleases(raw)
-  const version  = Object.keys(releases)[0]
-  const release = releases[version]
-
+function toData (release) {
   if (release == null) return null
 
   return {
@@ -50,11 +47,26 @@ function getRecentData (raw) {
   }
 }
 
+function getRecentData (raw) {
+  const releases = getReleases(raw)
+  const version  = Object.keys(releases)[0]
+  const release = releases[version]
+  return toData(release)
+}
+
+function getVersionData (version, raw) {
+  const releases = getReleases(raw)
+  const release = releases[version]
+  return toData(release)
+}
+
 module.exports = function (robot) {
-  robot.respond(/changelog/, function (msg) {
+  robot.respond(/changelog\s*(.+)?/, function (msg) {
     const envelope = msg.envelope
+    const version  = msg.match[1]
+
     const raw = loadChangelog()
-    const data = getRecentData(raw)
+    const data = version == null ? getRecentData(raw) : getVersionData(version, raw)
 
     if (data == null) return msg.send('取得に失敗しました')
 
