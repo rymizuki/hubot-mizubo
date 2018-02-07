@@ -1,3 +1,13 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/rymizuki/hubot-mizubo/compare/v1.1.0...v1.1.1) (2018-02-07)
+
+
+### Bug Fixes
+
+* **changelog:** 対応できないフォーマットがあったので修正 ([9be5243](https://github.com/rymizuki/hubot-mizubo/commit/9be5243))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/rymizuki/hubot-mizubo/compare/v1.0.0...v1.1.0) (2018-02-07)
 
