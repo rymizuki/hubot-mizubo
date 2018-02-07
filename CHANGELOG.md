@@ -1,5 +1,15 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/rymizuki/hubot-mizubo/compare/v1.0.0...v1.1.0) (2018-02-07)
+
+
+### Features
+
+* **changelog:** show changelog ([0d95124](https://github.com/rymizuki/hubot-mizubo/commit/0d95124))
+
+
+
 <a name="1.0.0"></a>
-# 1.0.0 (2018-02-07)
+# [1.0.0](https://github.com/rymizuki/hubot-mizubo/compare/57bbdfd...v1.0.0) (2018-02-07)
 
 
 ### Bug Fixes
