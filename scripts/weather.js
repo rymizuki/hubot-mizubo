@@ -71,12 +71,20 @@ module.exports = function (robot) {
   function fetchAndPost (target, sender) {
     const method = target == 'tomorrow' ? 'getTomorrow' : 'getToday'
     const dateStr = target == 'tomorrow' ? '明日' : '今日'
+    const weatherIcon = {
+      'Clear': ':sunny:',
+      'Clouds': ':cloud:',
+      'Rain': ':rain_cloud:',
+    }
 
     client[method]({ q: loc })
       .then((res) => {
+        console.log(JSON.stringify(res, null, 2))
         const weatherstr = chain(res.list)
           .map((data) => {
-            return `_${ moment(data.dt_txt).format('H時') }_ *${ data.weather[0].main }*`
+            const icon = weatherIcon[data.weather[0].main]
+            const rainPer = data.rain['3h'] || 0
+            return `_${ moment(data.dt_txt).format('H時') }_ *${ data.weather[0].main }* ${ icon } (${ rainPer }%)`
           })
           .join(', ')
           .value()
