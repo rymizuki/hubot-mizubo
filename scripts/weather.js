@@ -83,7 +83,7 @@ module.exports = function (robot) {
         const weatherstr = chain(res.list)
           .map((data) => {
             const icon = weatherIcon[data.weather[0].main]
-            const rainPer = data.rain['3h'] || 0
+            const rainPer = data.rain ? data.rain['3h'] : 0
             return `_${ moment(data.dt_txt).format('H時') }_ *${ data.weather[0].main }* ${ icon } (${ rainPer }%)`
           })
           .join(', ')
