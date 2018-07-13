@@ -100,6 +100,12 @@ ansicolors@~0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/ansicolors/-/ansicolors-0.2.1.tgz#be089599097b74a5c9c4a84a0cdbcdb62bd87aef"
 
+apac@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/apac/-/apac-3.0.2.tgz#1a0d6fddc0183ba4c66b6119082485d8c24f474f"
+  dependencies:
+    xml2js "^0.4.17"
+
 argparse@^1.0.7:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.9.tgz#73d83bc263f86e97f8cc4f6bae1b0e90a7d22c86"
@@ -2933,7 +2939,7 @@ xdg-basedir@^1.0.0:
   dependencies:
     user-home "^1.0.0"
 
-xml2js@~0.4.0:
+xml2js@^0.4.17, xml2js@~0.4.0:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.19.tgz#686c20f213209e94abf0d1bcf1efaa291c7827a7"
   dependencies:
