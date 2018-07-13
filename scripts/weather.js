@@ -62,6 +62,11 @@ class WeatherResults {
   }
 }
 
+function dateFormat (from, format) {
+  moment.locale('ja')
+  return moment(from).add(9, 'hours').format(format)
+}
+
 const loc = 'Shinagawa, JP'
 const apiKey  = process.env.HUBOT_WEATHER_KEY
 
@@ -83,15 +88,15 @@ module.exports = function (robot) {
         const weatherstr = chain(res.list)
           .map((data) => {
             const icon = weatherIcon[data.weather[0].main]
-            const rainPer = data.rain ? data.rain['3h'] : 0
-            return `_${ moment(data.dt_txt).format('H時') }_ *${ data.weather[0].main }* ${ icon } (${ rainPer }%)`
+            const rainPer = Math.round((data.rain ? (data.rain['3h'] || 0) : 0) * 100)
+            return `_${ dateFormat(data.dt_txt, 'H時') }_ *${ data.weather[0].main }* ${ icon } (${ rainPer }%)`
           })
           .join(', ')
           .value()
 
         const tempstr = chain(res.list)
           .map((weather) => {
-            return `_${ moment(weather.dt_txt).format('H時') }_ *${ Math.round(weather.main.temp) }℃*`
+            return `_${ dateFormat(weather.dt_txt, 'H時') }_ *${ Math.round(weather.main.temp) }℃*`
           })
           .join(', ')
           .value()
