@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@mizuki_r/hubot-scheduler": "^0.0.2",
+    "apac": "^3.0.2",
     "axios": "^0.17.1",
     "date-holidays": "^1.2.0",
     "google-spreadsheet": "^2.0.4",
