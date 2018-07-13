@@ -33,7 +33,7 @@ module.exports = function (robot) {
       title: 'not 月刊',
       keywords,
       binding: 'kindle',
-      pubdate: `during ${ moment().format('MM-YYYY') }`,
+      // pubdate: `during ${ moment().format('MM-YYYY') }`,
     }
 
     client.execute('ItemSearch', {
