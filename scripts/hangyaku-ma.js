@@ -24,9 +24,9 @@ module.exports = (robot) => {
 
   const scheduler = robot.scheduler
   schedules.forEach((schedule) => {
-    scheduler.register(scheduler)
-  })
-  scheduler.onTime((envelope, { label }) => {
-    robot.send(envelope, `ねえアーサー！${ label }の時間だよ！`)
+    scheduler.register(schedule)
+      .onTime((envelope, { label }) => {
+        robot.send(envelope, `ねえアーサー！${ label }の時間だよ！`)
+      })
   })
 }
