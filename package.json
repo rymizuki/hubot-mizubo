@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@mizuki_r/hubot-scheduler": "^0.0.2",
+    "@mizuki_r/hubot-scheduler": "0.0.4",
     "apac": "^3.0.2",
     "axios": "^0.17.1",
     "date-holidays": "^1.2.0",
