@@ -1,3 +1,5 @@
+import { TRobot } from '../types/hubot'
+
 const timetable = [
   [[12, 15, [1, 3, 5]], '狩猟戦'],
   [[12, 30, null],      '強敵襲来'],
