@@ -10,6 +10,7 @@
   "scripts": {
     "start": "lerna exec 'npm start' --scope core",
     "dev": "lerna exec 'npm run dev' --scope core",
-    "build": "echo 'undefined build command'"
+    "build": "echo 'undefined build command'",
+    "bump": "lerna version --conventional-commits --no-git-tag-version"
   }
 }
