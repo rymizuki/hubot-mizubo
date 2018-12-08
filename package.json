@@ -14,7 +14,6 @@
     "hubot-diagnostics": "^0.0.2",
     "hubot-dotenv": "^1.0.0",
     "hubot-help": "^0.2.2",
-    "hubot-redis-brain": "^0.0.4",
     "hubot-rules": "^0.1.2",
     "hubot-slack": "^4.5.5",
     "lodash": "^4.17.11",
