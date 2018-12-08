@@ -3,5 +3,6 @@
   "hubot-help",
   "hubot-rules",
   "hubot-calc",
-  "hubot-weather"
+  "hubot-weather",
+  "hubot-hangyaku-ma"
 ]

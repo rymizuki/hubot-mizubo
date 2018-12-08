@@ -1,0 +1,10 @@
+{
+  "name": "hubot-mangyaku-ma",
+  "version": "1.2.0",
+  "main": "scripts/index.js",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+  }
+}
