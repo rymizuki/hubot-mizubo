@@ -1,4 +1,5 @@
 [
+  "hubot-extension-upload",
   "hubot-diagnostics",
   "hubot-help",
   "hubot-rules",
