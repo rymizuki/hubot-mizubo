@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM node:10.14.1-alpine
 RUN apk update \
  && apk --no-cache add yarn \
  && apk --no-cache add git \
