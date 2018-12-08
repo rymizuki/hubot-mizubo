@@ -4,8 +4,8 @@
 // Commands:
 //   hubot fgo 鯖 <名前> - サーヴァント情報を取得します
 //
-const ServantDatasource = require('servant-datasource')
-const FgoDropEfficiency = require('fgo-drop-efficiency')
+const ServantDatasource = require('./fgo-servant-datasource')
+const FgoDropEfficiency = require('./fgo-drop-efficiency')
 
 module.exports = function (robot) {
   const servant = new ServantDatasource()

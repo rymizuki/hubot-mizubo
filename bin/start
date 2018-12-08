@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+docker run \
+  --name hubot-mizubo \
+  -i \
+  -t \
+  -d \
+  --rm \
+  --env-file .env \
+  hubot-mizubo

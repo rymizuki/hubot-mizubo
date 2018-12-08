@@ -1,0 +1,11 @@
+{
+  "name": "hubot-extension-scheduler",
+  "version": "1.2.0",
+  "main": "scripts/index.js",
+  "dependencies": {
+    "@mizuki_r/hubot-scheduler": "0.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+  }
+}

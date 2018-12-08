@@ -1,0 +1,25 @@
+{
+  "name": "core",
+  "private": true,
+  "version": "1.2.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "hubot": "^3.1.1",
+    "hubot-calc": "^1.2.0",
+    "hubot-diagnostics": "^0.0.2",
+    "hubot-extension-scheduler": "^1.2.0",
+    "hubot-extension-upload": "^1.2.0",
+    "hubot-fgo": "^1.2.0",
+    "hubot-hangyaku-ma": "^1.2.0",
+    "hubot-help": "^0.2.2",
+    "hubot-kindle": "^1.2.0",
+    "hubot-rules": "^0.1.2",
+    "hubot-slack": "^4.5.5",
+    "hubot-weather": "^1.2.0"
+  },
+  "scripts": {
+    "start": "./bin/hubot -a slack",
+    "dev": "./bin/hubot"
+  }
+}

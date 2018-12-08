@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+docker run \
+  --rm \
+  -i \
+  -t \
+  -v $(pwd):/usr/local/docker/app  \
+  hubot-mizubo \
+  "$@"

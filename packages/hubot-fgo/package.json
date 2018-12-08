@@ -1,0 +1,13 @@
+{
+  "name": "hubot-fgo",
+  "version": "1.2.0",
+  "main": "scripts/index.js",
+  "dependencies": {
+    "google-spreadsheet": "^2.0.6",
+    "axios": "^0.17.1",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+  }
+}
