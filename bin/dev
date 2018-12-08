@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+docker run \
+  --rm \
+  -v $(pwd):/usr/local/docker/app  \
+  hubot-mizubo \
+  npm run build
+
+docker run \
+  --name hubot-mizubo--dev \
+  -i \
+  -t \
+  --rm \
+  --env-file .env \
+  -v $(pwd):/usr/local/docker/app \
+  hubot-mizubo \
+  npm run dev
