@@ -1,5 +1,5 @@
 {
-  "name": "hubot-mangyaku-ma",
+  "name": "hubot-hangyaku-ma",
   "version": "1.2.0",
   "main": "scripts/index.js",
   "dependencies": {
