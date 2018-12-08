@@ -16,6 +16,7 @@
     "hubot-help": "^0.2.2",
     "hubot-rules": "^0.1.2",
     "hubot-slack": "^4.5.5",
+    "hubot-weather": "^1.2.0",
     "lodash": "^4.17.11",
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
@@ -23,7 +24,6 @@
     "q": "^1.5.1",
     "qs": "^6.5.1"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "./bin/hubot -a slack",
     "dev": "./bin/hubot"
