@@ -11,6 +11,7 @@
     "date-holidays": "^1.2.0",
     "google-spreadsheet": "^2.0.6",
     "hubot": "^3.1.1",
+    "hubot-calc": "^1.2.0",
     "hubot-diagnostics": "^0.0.2",
     "hubot-help": "^0.2.2",
     "hubot-rules": "^0.1.2",
