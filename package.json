@@ -10,7 +10,7 @@
     "axios": "^0.17.1",
     "date-holidays": "^1.2.0",
     "google-spreadsheet": "^2.0.6",
-    "hubot": "^2.19.0",
+    "hubot": "^3.1.1",
     "hubot-diagnostics": "^0.0.2",
     "hubot-dotenv": "^1.0.0",
     "hubot-help": "^0.2.2",
