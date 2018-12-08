@@ -1,3 +1,33 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.3.0](https://github.com/rymizuki/hubot-mizubo/compare/v1.2.0...v1.3.0) (2018-12-08)
+
+
+### Bug Fixes
+
+* **fgo:** オーロラを検索できるように ([64910e1](https://github.com/rymizuki/hubot-mizubo/commit/64910e1))
+* **hangyaku-ma:** bug fixed in scheduler ([b3a5948](https://github.com/rymizuki/hubot-mizubo/commit/b3a5948))
+* **weather:** when clear, throwing exception ([52e4264](https://github.com/rymizuki/hubot-mizubo/commit/52e4264))
+* **weather:** 時刻がおかしかった ([8b41a97](https://github.com/rymizuki/hubot-mizubo/commit/8b41a97))
+
+
+### Features
+
+* **brain:** remove feature ([cc93269](https://github.com/rymizuki/hubot-mizubo/commit/cc93269))
+* **changelog:** remove feature ([062210a](https://github.com/rymizuki/hubot-mizubo/commit/062210a))
+* **hangyakusei-ma:** maのイベントタイムを通知してくれるbot ([dcf409c](https://github.com/rymizuki/hubot-mizubo/commit/dcf409c))
+* **kindle:** 今月制限なくてよくね ([9279989](https://github.com/rymizuki/hubot-mizubo/commit/9279989))
+* **kindle:** 今月発売するkindle本を検索できるよ ([840e944](https://github.com/rymizuki/hubot-mizubo/commit/840e944))
+* **salary:** remove feature ([1e0d499](https://github.com/rymizuki/hubot-mizubo/commit/1e0d499))
+* **weather:** 降水確率を表示 ([85da93c](https://github.com/rymizuki/hubot-mizubo/commit/85da93c))
+
+
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/rymizuki/hubot-mizubo/compare/v1.1.1...v1.2.0) (2018-02-07)
 
@@ -49,6 +79,3 @@
 * **weather:** 今日の天気を教えてくれる ([57bbdfd](https://github.com/rymizuki/hubot-mizubo/commit/57bbdfd))
 * **weather:** 傘の必要性をリコメンド ([aa95b97](https://github.com/rymizuki/hubot-mizubo/commit/aa95b97))
 * **weather:** 毎朝7時に天気を教えてくれるようにした ([ff72337](https://github.com/rymizuki/hubot-mizubo/commit/ff72337))
-
-
-

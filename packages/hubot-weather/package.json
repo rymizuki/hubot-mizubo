@@ -1,15 +1,13 @@
 {
   "name": "hubot-weather",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "main": "scripts/index.js",
   "dependencies": {
     "axios": "^0.17.1",
-    "qs": "^6.5.1",
+    "lodash": "^4.17.11",
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
-    "lodash": "^4.17.11"
+    "qs": "^6.5.1"
   },
-  "devDependencies": {},
-  "scripts": {
-  }
+  "scripts": {}
 }
