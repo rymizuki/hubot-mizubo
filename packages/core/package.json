@@ -5,10 +5,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.17.1",
     "hubot": "^3.1.1",
     "hubot-calc": "^1.2.0",
     "hubot-diagnostics": "^0.0.2",
+    "hubot-extension-scheduler": "^1.2.0",
     "hubot-extension-upload": "^1.2.0",
     "hubot-fgo": "^1.2.0",
     "hubot-hangyaku-ma": "^1.2.0",
@@ -16,13 +16,7 @@
     "hubot-kindle": "^1.2.0",
     "hubot-rules": "^0.1.2",
     "hubot-slack": "^4.5.5",
-    "hubot-weather": "^1.2.0",
-    "lodash": "^4.17.11",
-    "moment": "^2.20.1",
-    "moment-timezone": "^0.5.14",
-    "node-schedule": "^1.3.0",
-    "q": "^1.5.1",
-    "qs": "^6.5.1"
+    "hubot-weather": "^1.2.0"
   },
   "scripts": {
     "start": "./bin/hubot -a slack",
