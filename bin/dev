@@ -13,6 +13,7 @@ docker run \
   -t \
   --rm \
   --env-file .env \
+  -e HUBOT_LOG_LEVEL=debug \
   -v $(pwd):/usr/local/docker/app \
   hubot-mizubo \
   npm run dev
