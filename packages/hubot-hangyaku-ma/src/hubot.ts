@@ -1,6 +1,9 @@
-import { TRobot } from '../types/hubot'
+import { IRobot, IResponse } from 'xhubot'
+import moment = require('moment')
+import { TimeTable } from './time-table'
+import { TimeRecord } from './time-record'
 
-const timetable = [
+const data = [
   [[12, 15, [1, 3, 5]], '狩猟戦'],
   [[12, 30, null],      '強敵襲来'],
   [[16,  0, null],      '強敵襲来'],
@@ -13,23 +16,20 @@ const timetable = [
   [[21, 30, [1, 3, 5]], 'アーサー選抜戦'],
 ]
 
-module.exports = (robot) => {
-  const schedules = timetable.map(([timing, label]) => {
-    const [hour, minute, dayOfWeek] = timing
-    return {
-      time: { hour, minute, dayOfWeek },
-      envelope: { room: '#叛逆性ミリオンアーサー' },
-      data: {
-        label
-      }
-    }
+export = (robot: IRobot) => {
+  const timetable = new TimeTable(data, robot.scheduler);
+  const envelope = { room: '#叛逆性ミリオンアーサー' }
+
+  timetable.onTime((record) => {
+    robot.send(envelope, `ねえアーサー！${ record.content }の時間だよ！`)
   })
 
-  const scheduler = robot.scheduler
-  schedules.forEach((schedule) => {
-    scheduler.register(schedule)
-      .onTime((envelope, { label }) => {
-        robot.send(envelope, `ねえアーサー！${ label }の時間だよ！`)
-      })
+  robot.respond(/timetable/, (res: IResponse) => {
+    const day = moment().day()
+    const output = timetable
+      .filterByDay(day)
+      .map((record: TimeRecord) => `${ record.time } - ${ record.content }`)
+      .join('\n')
+    res.send(output);
   })
 }

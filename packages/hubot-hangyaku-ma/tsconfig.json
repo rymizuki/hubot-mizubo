@@ -13,6 +13,15 @@
     "baseUrl": ".",
     "allowJs": true,
     "outDir": "./scripts",
-    "rootDir": "./src"
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types",
+    ],
   },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "files": [
+    "./node_modules/moment/moment.d.ts"
+  ],
 }
