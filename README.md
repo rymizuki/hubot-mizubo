@@ -1,4 +1,4 @@
-# hubot-numabo
+# hubot-mizubo
 
 ## Setup
 
