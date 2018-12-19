@@ -18,5 +18,6 @@ COPY ./lerna.json /usr/local/docker/app/lerna.json
 COPY ./packages /usr/local/docker/app/packages
 
 RUN npx lerna bootstrap
+RUN npx lerna run build
 
 CMD ["npm", "start"]
