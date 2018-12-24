@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-docker container stop hubot-numabo
+docker container stop hubot-mizubo
