@@ -6,6 +6,7 @@ export class TimeRecord {
     public hour: number,
     public minute: number,
     public days: number[] | null,
+    public type: 'bonus' | 'event',
     public content: string
   ) {
     this.time = moment()
@@ -14,8 +15,14 @@ export class TimeRecord {
       .format('HH:mm')
   }
   isInDay(day: number): boolean {
-    if (this.days == null) return true
+    if (this.days === null) return true
     return this.days.filter((target) => day === target).length > 0
+  }
+  isBonus(): boolean {
+    return this.type === 'bonus'
+  }
+  isEvent(): boolean {
+    return this.type === 'event'
   }
 }
 

@@ -4,9 +4,9 @@ import { TimeRecord } from './time-record'
 export class TimeTable {
   private records: TimeRecord[]
   constructor(table, private scheduler: IScheduler) {
-    this.records = table.map(([timing, label]) => {
+    this.records = table.map(([timing, type, label]) => {
       const [hour, minute, dayOfWeek]: [number, number, number[] | null] = timing
-      return new TimeRecord(hour, minute, dayOfWeek, label);
+      return new TimeRecord(hour, minute, dayOfWeek, type, label);
     })
   }
   onTime(fn: (record: TimeRecord) => void): void {

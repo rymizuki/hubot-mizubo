@@ -4,17 +4,19 @@ import { TimeTable } from './time-table'
 import { TimeRecord } from './time-record'
 
 const data = [
-  [[12, 15, [1, 3, 5]], '狩猟戦'],
-  [[12, 30, null],      '強敵襲来'],
-  [[16,  0, null],      '強敵襲来'],
-  [[16, 50, [1, 3, 5]], '狩猟戦'],
-  [[19, 55, null],      'ブリテンボス'],
-  [[20, 30, null],      '円卓会議'],
-  [[20, 50, [1, 3, 5]], '狩猟戦'],
-  [[20, 50, [4, 6]],    '伝承戦'],
-  [[20, 50, [6]], '殲滅戦'],
-  [[21, 30, [1, 3, 5]], 'アーサー選抜戦'],
-  [[22,  0, null],      '強敵襲来'],
+  [[12,  0, null],      'bonus', 'スタミナ'],
+  [[12, 15, [1, 3, 5]], 'event', '狩猟戦'],
+  [[12, 30, null],      'event', '強敵襲来'],
+  [[16,  0, null],      'event', '強敵襲来'],
+  [[16, 50, [1, 3, 5]], 'event', '狩猟戦'],
+  [[18,  0, null],      'bonus', 'スタミナ'],
+  [[19, 55, null],      'event', 'ブリテンボス'],
+  [[20, 30, null],      'event', '円卓会議'],
+  [[20, 50, [1, 3, 5]], 'event', '狩猟戦'],
+  [[20, 50, [4, 6]],    'event', '伝承戦'],
+  [[20, 50, [0, 2]],    'event', '殲滅戦'],
+  [[21, 30, [1, 3, 5]], 'event', 'アーサー選抜戦'],
+  [[22,  0, null],      'event', '強敵襲来'],
 ]
 
 export = (robot: IRobot) => {
@@ -22,7 +24,9 @@ export = (robot: IRobot) => {
   const envelope = { room: '#叛逆性ミリオンアーサー' }
 
   timetable.onTime((record) => {
-    robot.send(envelope, `ねえアーサー！${ record.content }の時間だよ！`)
+    const message = record.isBonus() ? `ねえアーサー！${ record.content }が受け取れるよ！` :
+                    record.isEvent() ? `ねえアーサー！${ record.content }の時間だよ！` : 'なんでもないよ！'
+    robot.send(envelope, message)
   })
 
   robot.respond(/timetable/, (res: IResponse) => {
